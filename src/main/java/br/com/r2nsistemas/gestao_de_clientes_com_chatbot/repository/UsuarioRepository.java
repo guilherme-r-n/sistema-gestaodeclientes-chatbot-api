@@ -10,10 +10,10 @@ import br.com.r2nsistemas.gestao_de_clientes_com_chatbot.entity.UsuarioEntity;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
 	
-	@Query(value = "SELECT * FROM cad_clientes c WHERE LOWER(unaccent(c.nome)) LIKE LOWER(unaccent(CONCAT('%', :nome, '%')))", nativeQuery = true)
+	@Query(value = "SELECT * FROM cad_usuarios c WHERE LOWER(unaccent(c.nome)) LIKE LOWER(unaccent(CONCAT('%', :nome, '%')))", nativeQuery = true)
 	List<UsuarioEntity> findByNome(@Param("nome") String nome);
 	
-	@Query(value = "SELECT * FROM cad_clientes c WHERE LOWER(unaccent(c.email)) LIKE LOWER(unaccent(CONCAT('%', :email, '%')))", nativeQuery = true)
+	@Query(value = "SELECT * FROM cad_usuarios c WHERE LOWER(unaccent(c.email)) LIKE LOWER(unaccent(CONCAT('%', :email, '%')))", nativeQuery = true)
 	List<UsuarioEntity> findByEmail(@Param("email") String email);
 
 }

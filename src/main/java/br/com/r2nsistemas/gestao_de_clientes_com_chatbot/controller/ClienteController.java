@@ -18,7 +18,7 @@ import br.com.r2nsistemas.gestao_de_clientes_com_chatbot.dto.ClienteDTO;
 import br.com.r2nsistemas.gestao_de_clientes_com_chatbot.service.ClienteService;
 
 @RestController
-@RequestMapping(value = "/cad_clientes")
+@RequestMapping(value = "/cliente")
 @CrossOrigin
 public class ClienteController {
 
