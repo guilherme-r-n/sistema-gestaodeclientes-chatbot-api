@@ -15,7 +15,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	public void salvar(ClienteDTO cliente) {
+	public void inserir(ClienteDTO cliente) {
 		ClienteEntity clienteEntity = new ClienteEntity(cliente);
 		clienteRepository.save(clienteEntity);
 	}

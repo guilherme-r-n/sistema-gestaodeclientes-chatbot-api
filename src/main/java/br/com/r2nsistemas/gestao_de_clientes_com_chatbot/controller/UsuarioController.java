@@ -26,13 +26,13 @@ public class UsuarioController {
 	private UsuarioService usuarioService;
 
 	@PostMapping
-	public ResponseEntity<Void> criar(@RequestBody UsuarioDTO usuario) {
-		usuarioService.salvar(usuario);
+	public ResponseEntity<Void> inserir(@RequestBody UsuarioDTO usuario) {
+		usuarioService.inserir(usuario);
 		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping
-	public ResponseEntity<List<UsuarioDTO>> listar() {
+	public ResponseEntity<List<UsuarioDTO>> listarTodos() {
 		List<UsuarioDTO> usuarios = usuarioService.listarTodos();
 		return ResponseEntity.ok(usuarios);
 	}

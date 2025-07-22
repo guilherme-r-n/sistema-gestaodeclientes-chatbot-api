@@ -15,7 +15,7 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public void salvar(UsuarioDTO usuario) {
+	public void inserir(UsuarioDTO usuario) {
 		UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
 		usuarioRepository.save(usuarioEntity);
 	}

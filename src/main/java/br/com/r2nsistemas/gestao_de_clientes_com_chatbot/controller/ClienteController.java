@@ -26,13 +26,13 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@PostMapping
-	public ResponseEntity<Void> criar(@RequestBody ClienteDTO cliente) {
-		clienteService.salvar(cliente);
+	public ResponseEntity<Void> inserir(@RequestBody ClienteDTO cliente) {
+		clienteService.inserir(cliente);
 		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping
-	public ResponseEntity<List<ClienteDTO>> listar() {
+	public ResponseEntity<List<ClienteDTO>> listarTodos() {
 		List<ClienteDTO> clientes = clienteService.listarTodos();
 		return ResponseEntity.ok(clientes);
 	}
