@@ -1,0 +1,46 @@
+package br.com.r2nsistemas.gestao_de_clientes_com_chatbot.entity;
+
+import org.springframework.beans.BeanUtils;
+
+import br.com.r2nsistemas.gestao_de_clientes_com_chatbot.dto.PermissaoPerfilRecursoDTO;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Table(name = "CAD_PERMISSAO_PERFIL_RECURSO")
+@Getter
+@Setter
+@NoArgsConstructor
+public class PermissaoPerfilRecursoEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_PERFIL")
+	private PerfilEntity perfil;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_RECURSO")
+	private RecursoEntity recurso;
+	
+	public PermissaoPerfilRecursoEntity(PermissaoPerfilRecursoDTO permissaoPerfilRecurso) {
+		BeanUtils.copyProperties(permissaoPerfilRecurso, this);
+		if(permissaoPerfilRecurso != null && permissaoPerfilRecurso.getPerfil() != null) {
+			this.perfil = new PerfilEntity(permissaoPerfilRecurso.getPerfil());
+		}
+		if(permissaoPerfilRecurso != null && permissaoPerfilRecurso.getRecurso() != null) {
+			this.recurso = new RecursoEntity(permissaoPerfilRecurso.getRecurso());
+		}
+	}
+
+}
